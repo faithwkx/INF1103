@@ -1,0 +1,20 @@
+inventory = 0
+
+while True:
+    quantity = input("Enter stock quantity or type 'quit' to exit: ")
+    if not quantity.isdigit():
+        print("Invalid input. Please enter a valid number.")
+        continue
+    elif int(quantity) < 0:
+        print("Invalid input. Please enter a non-negative number.")
+        continue
+    elif int(quantity) == 500:
+        print("Inventory limit reached. Stopping input.")
+        print("Current inventory:", inventory)
+        break
+    elif int(quantity) == "quit":
+        print("Exiting the program.")
+        break
+    
+    inventory += int(quantity)
+    print("Current inventory:", inventory)
