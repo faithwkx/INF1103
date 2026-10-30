@@ -1,0 +1,18 @@
+[
+    {
+        "id": "P006",
+        "name": "Guitar",
+        "price": 250.0,
+        "stock": 5,
+        "type": "physical",
+        "weight": 3.5
+    },
+    {
+        "id": "D001",
+        "name": "Minecraft",
+        "price": 50.0,
+        "stock": 10,
+        "type": "digital",
+        "download_size": 1500.0
+    }
+]
