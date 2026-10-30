@@ -7,6 +7,10 @@ class Product:
         self.__price = price
         self.__stock = stock
 
+    # Get the product ID
+    def get_product_id(self):
+        return self.__product_id
+
     # Update stock quantity
     def update_stock(self, quantity):
         self.__stock = quantity
