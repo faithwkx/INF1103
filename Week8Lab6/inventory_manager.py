@@ -1,4 +1,6 @@
 
+import json
+import os
 from product import Product
 from inventory import Inventory
 
@@ -31,7 +33,7 @@ def add_product():
     inventory.add_product(product)
 
 
-# Update the stock of an existing product
+# Update stock quantity
 def update_stock():
     print("\nUpdate Stock")
 
@@ -66,10 +68,48 @@ def search_product():
         print("Product not found.")
 
 
+# Load inventory from JSON
+def load_inventory():
+    if os.path.exists("inventory.json"):
+        print("inventory.json found.")
+
+        with open("inventory.json", "r") as file:
+            data = json.load(file)
+
+        for item in data:
+            product = Product(
+                item["id"],
+                item["name"],
+                item["price"],
+                item["stock"]
+            )
+            inventory.add_product(product)
+
+        print("Inventory loaded successfully.")
+    else:
+        print("inventory.json not found.")
+        print("Starting with empty inventory.")
+
+
+# Save inventory to JSON
+def save_inventory():
+    data = []
+
+    for product in inventory.products:
+        data.append(product.to_dict())
+
+    with open("inventory.json", "w") as file:
+        json.dump(data, file, indent=4)
+
+    print("Inventory saved successfully.")
+
+
 # Main program
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("========================================")
+
+load_inventory()
 
 while True:
     display_menu()
@@ -90,9 +130,12 @@ while True:
 
     elif option == "5":
         print("\nSaving inventory...")
-        print("Save function will be added next.")
+        save_inventory()
 
     elif option == "6":
+        print("\nSaving inventory before exit...")
+        save_inventory()
+
         print("\nThank you for using Inventory Management System.")
         print("Program terminated.")
         break

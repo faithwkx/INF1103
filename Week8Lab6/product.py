@@ -21,3 +21,12 @@ class Product:
         print("Name:", self.__name)
         print("Price: $", format(self.__price, ".2f"), sep="")
         print("Stock:", self.__stock)
+
+    # Convert product details into a dictionary
+    def to_dict(self):
+        return {
+            "id": self.__product_id,
+            "name": self.__name,
+            "price": self.__price,
+            "stock": self.__stock
+        }
