@@ -46,7 +46,7 @@ class Product(ABC):
         print("Supplier Email:", self.supplier.contact_email)
 
     # Convert product details into a dictionary for JSON saving
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, str | int | float]:
         return {
             "id": self.__product_id,
             "name": self.__name,

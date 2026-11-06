@@ -32,7 +32,7 @@ class DigitalProduct(Product):
         return "This product is delivered digitally."
 
     # Convert digital product information into a dictionary for JSON.
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, str | int | float]:
         data = super().to_dict()
         data["type"] = "digital"
         data["download_size"] = self.__download_size

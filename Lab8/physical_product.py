@@ -37,7 +37,7 @@ class PhysicalProduct(Product, CanBeShipped):
         return self.__weight * 2
 
     # Convert physical product information into a dictionary for JSON.
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, str | int | float]:
         data = super().to_dict()
         data["type"] = "physical"
         data["weight"] = self.__weight
